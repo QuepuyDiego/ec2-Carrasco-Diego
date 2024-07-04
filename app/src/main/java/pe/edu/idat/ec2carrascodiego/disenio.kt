@@ -8,11 +8,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,6 +30,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MyApp() {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text("AppIDAT")
+                },
+                navigationIcon = {
+                    IconButton(onClick = { }) {
+                        Icon(Icons.Filled.Info, contentDescription = null)
+                    }
+                }
+            )
+        }, content = {disenio()}
+    )
+}
+
 
 @Composable
 fun disenio() {
@@ -42,6 +70,12 @@ fun disenio() {
             .fillMaxWidth()
             .padding(16.dp)
     ) {
+        Spacer(modifier = Modifier.height(45.dp))
+
+        Text("INFORMACIÓN", fontSize = 24.sp, modifier = Modifier.align(Alignment.CenterHorizontally))
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         OutlinedTextField(
             value = dni,
             onValueChange = { dni = it },
@@ -84,7 +118,7 @@ fun disenio() {
                 onClick = { sexo = "Hombre" }
             )
             Text("Hombre")
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(8.dp))
             RadioButton(
                 selected = sexo == "Mujer",
                 onClick = { sexo = "Mujer" }
@@ -119,7 +153,7 @@ fun disenio() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { /* Implementa la lógica de acceso aquí */ },
+            onClick = {},
             modifier = Modifier.align(Alignment.CenterHorizontally)
         ) {
             Text("Acceder")
