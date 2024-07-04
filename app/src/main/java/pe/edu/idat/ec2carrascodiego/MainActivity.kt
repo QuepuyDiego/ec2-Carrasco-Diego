@@ -20,6 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Ec2CarrascoDiegoTheme {
                 MyApp()
+                //ItemRecycler(listaLibros)
             }
         }
     }
